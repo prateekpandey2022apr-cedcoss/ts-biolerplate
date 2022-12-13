@@ -6,8 +6,8 @@ const useFetch = (baseUrl: string) => {
   // dynamic interace
 
   type commonArgs = {
-    params?: object;
-    headers?: HeadersInit;
+    params: object;
+    headers: HeadersInit;
   };
 
   const requiredHeadears = {
@@ -42,7 +42,7 @@ const useFetch = (baseUrl: string) => {
     let finalHeaders: OBJI;
 
     if (Object.keys(additionalArgs.params).length) {
-      url += `?${new URLSearchParams(additionalArgs.params).toString()}`;
+      url += `?${new URLSearchParams({ ...additionalArgs.params }).toString()}`;
     }
 
     if (Object.keys(additionalArgs.headers).length) {
