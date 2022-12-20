@@ -1,10 +1,8 @@
 import { useState } from "react";
 
 const useFetch = (baseUrl: string) => {
-  // const [url, setUrl] = useState(baseUrl);
 
   // dynamic interace
-
   type commonArgs = {
     params: object;
     headers: HeadersInit;
@@ -35,8 +33,6 @@ const useFetch = (baseUrl: string) => {
     }
 
     let url: string;
-
-    // 
 
     url = baseUrl + endpoint;
     let finalHeaders: OBJI;
@@ -87,24 +83,8 @@ const useFetch = (baseUrl: string) => {
     }).then((response) => response.json());
   };
 
-  // const extractDataFromApi = (endpoint: string, payload: string, method) => {
-  //   switch (method.toLowerCase()) {
-  //     case "get":
-  //       return get(endpoint);
-  //     case "post":
-  //       return post(endpoint, payload);
-  //     case "put":
-  //       return put(endpoint, payload);
-  //     case "delete":
-  //       return del(endpoint);
-  //     default:
-  //       throw new Error(`Invalid method ${method}`);
-  //   }
-  // };
 
-  //   const _request = ()
   return [{ get, post, put, del }];
-  // return { extractDataFromApi };
 };
 
 export { useFetch };
